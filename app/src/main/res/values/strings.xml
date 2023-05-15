@@ -49,4 +49,23 @@
     <string name="privat">Privat Storage</string>
     <string name="share">/storage/emulated/0/Download/netadminSSH.csv</string>
     <string name="title">title</string>
+
+    <string-array name="lessons">
+        <item>0</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+
 </resources>

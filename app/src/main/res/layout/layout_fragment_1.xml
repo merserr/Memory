@@ -3,7 +3,16 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/progressBar"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="1dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

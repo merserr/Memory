@@ -20,11 +20,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import java.io.File;
@@ -45,6 +49,7 @@ public class Fragment1 extends Fragment implements MediaPlayer.OnCompletionListe
     String filename_translate;
     String fileNameDeutschText;
     String fileNameOurText;
+    int my_lesson;
 
     BroadcastReceiver br1;
 //    String MESSAGE="messageforfragment_1";
@@ -109,6 +114,7 @@ public class Fragment1 extends Fragment implements MediaPlayer.OnCompletionListe
 
 
 
+
     }
 
     // Inflate the view for the fragment based on layout XML
@@ -121,6 +127,37 @@ public class Fragment1 extends Fragment implements MediaPlayer.OnCompletionListe
 
         allEds = new ArrayList<View>();
         Context ctx = (Context)Fragment1.this.getActivity();
+
+        Spinner spinner = view.findViewById(R.id.spinner);
+        // Настраиваем адаптер
+        ArrayAdapter<?> adapter =
+                ArrayAdapter.createFromResource(ctx, R.array.lessons,
+                        android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+// Вызываем адаптер
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent,
+                                       View itemSelected, int selectedItemPosition, long selectedId) {
+
+                String[] choose = getResources().getStringArray(R.array.lessons);
+
+                try {
+                   my_lesson = Integer.parseInt(choose[selectedItemPosition]);
+
+                } catch(NumberFormatException nfe) {
+                    System.out.println("Could not parse " + nfe);
+                }
+      //          extractionID();
+
+
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
 
         Button button_filling = (Button) view.findViewById(R.id.button_get_data);
